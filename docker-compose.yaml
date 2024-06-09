@@ -24,8 +24,6 @@ services:
       - "3310:3306"
     environment:
       - MYSQL_DATABASE=workoutplanner
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=ajmonakavu123
       - MYSQL_ROOT_PASSWORD=ajmonakavu123
     volumes:
       - db_data:/var/lib/mysql
