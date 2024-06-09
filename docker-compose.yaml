@@ -6,9 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3310/workoutplanner
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/workoutplanner
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=ajmonakavu123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
@@ -16,10 +16,12 @@ services:
       - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
     depends_on:
       - db
+    restart: always
+
   db:
-    image: mysql:latest
+    image: mysql:5.7
     ports:
-      - 3310:3306
+      - "3310:3306"
     environment:
       - MYSQL_DATABASE=workoutplanner
       - MYSQL_USER=root
@@ -27,5 +29,7 @@ services:
       - MYSQL_ROOT_PASSWORD=ajmonakavu123
     volumes:
       - db_data:/var/lib/mysql
+    restart: always
+
 volumes:
   db_data:

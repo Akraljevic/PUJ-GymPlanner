@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the pom.xml and download the dependencies
 COPY pom.xml .
 
-# Download maven dependencies (this will be cached)
+# Download maven dependencies (this will be cached if no changes in pom.xml)
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the project files
@@ -16,7 +16,7 @@ COPY src ./src
 # Package the application
 RUN mvn package -DskipTests
 
-# Use an official Eclipse temurin runtime as a parent image
+# Use an official Eclipse Temurin runtime as a parent image
 FROM eclipse-temurin:17
 
 # Set the working directory in the container
