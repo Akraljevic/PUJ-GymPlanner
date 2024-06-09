@@ -1,8 +1,7 @@
 version: '3.8'
 services:
   workoutplanner:
-    image: workoutplanner:latest
-    restart: always
+    image: 'workoutplanner:latest'
     build:
       context: .
       dockerfile: Dockerfile
