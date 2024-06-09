@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Edit Workout Plan</title>
+    <style>
+        body{
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            margin: 0;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form label {
+            position: relative;
+        }
+
+        .form label .input {
+            width: 100%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form label .input + span {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: grey;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+        .choose{
+            color: grey;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+        .form label .input:placeholder-shown + span {
+            top: 15px;
+            font-size: 0.9em;
+        }
+
+        .form label .input:focus + span, .form label .input:valid + span {
+            top: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .form label .input:valid + span {
+            color: green;
+        }
+
+        .submit {
+            border: none;
+            outline: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+
+        .workouts-list {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .workouts-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .workout-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .workout-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.3); /* Increase the size of the checkbox */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h1 class="title">Uredi plan</h1>
+        <form th:action="@{/plans/{id}/update(id=${workoutPlan.id})}" method="post" class="form">
+            <label for="name">
+                <input type="text" id="name" name="name" class="input" th:value="${workoutPlan.name}" placeholder=" " required>
+                <span>Ime Treninga</span>
+            </label>
+            <label for="workouts">
+                <span class="choose">Izaberite vježbe:</span>
+                <ul class="workouts-list">
+                    <li th:each="workout : ${workouts}" class="workout-item">
+                        <input type="checkbox" th:value="${workout.id}" th:id="'workout-' + ${workout.id}" name="workoutIds" th:checked="${workoutPlan.workouts.contains(workout)}">
+                        <label th:for="'workout-' + ${workout.id}" th:text="${workout.name}"></label>
+                    </li>
+                </ul>
+            </label>
+            <button type="submit" class="submit">Ažurirajte plan</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+```
