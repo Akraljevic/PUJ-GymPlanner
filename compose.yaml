@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  workoutplanner:
+    image: workoutplanner:latest
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3310/workoutplanner
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=ajmonakavu123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_SHOW_SQL=true
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    ports:
+      - 3310:3306
+    environment:
+      - MYSQL_DATABASE=workoutplanner
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=ajmonakavu123
+      - MYSQL_ROOT_PASSWORD=ajmonakavu123
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
