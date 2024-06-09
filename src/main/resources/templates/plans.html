@@ -14,8 +14,9 @@
         .header {
             width: 100%;
             max-width: 100%;
-            background-color: royalblue;
+            background-color: gray;
             padding: 20px;
+            opacity: 80%;
             color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
@@ -29,7 +30,7 @@
         .title {
             font-size: 28px;
             color: #fff;
-            background: royalblue;
+            background: gray;
             font-weight: 600;
             letter-spacing: -1px;
             margin: 0;
@@ -40,7 +41,7 @@
         .button {
             padding: 10px 20px;
             font-size: 16px;
-            color: #5377e5;
+            color: black;
             background-color: #fff;
             border: none;
             border-radius: 10px;
@@ -50,13 +51,13 @@
             margin-top: 10px;
         }
         .button:hover {
-            background-color: rgb(105, 164, 231);
+            background-color: #726c6c;
             color: white;
         }
         .delete-btn {
             padding: 10px 20px;
             font-size: 16px;
-            color: #5377e5;
+            color: black;
             background-color: #fff;
             border: none;
             border-radius: 10px;
@@ -79,12 +80,13 @@
         .action-container {
             display: flex;
             gap: 10px;
-            align-items: center; /* align items vertically in the center */
+            align-items: center;
         }
         .plans-list {
             list-style-type: none;
             padding: 0;
             width: 100%;
+            opacity: 90%;
         }
         .plan-item {
             display: flex;
@@ -131,11 +133,11 @@
             transition: background-color 0.3s ease;
         }
         .logout input[type="submit"]:hover {
-            background-color: rgb(56, 90, 194);
+            background-color: #464242;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100" style="margin:0; height:100vh; background: url('https://img.freepik.com/premium-photo/gym-background-enough-blank-space-light-white-tone-modern-style-generative-ai_527096-25226.jpg?w=1060') no-repeat center center fixed; background-size: cover;">
 <div class="header">
     <h1 class="title">Spremljeni planovi za trening</h1>
     <a class="button" th:href="@{/plans/new}">Kreiraj novi plan</a>

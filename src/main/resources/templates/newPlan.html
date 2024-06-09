@@ -34,7 +34,7 @@
         .title {
             font-family: 'Roboto', sans-serif;
             font-size: 28px;
-            color: royalblue;
+            color: #3f3f3f;
             font-weight: 600;
             letter-spacing: -1px;
             position: relative;
@@ -99,35 +99,24 @@
         .submit {
             border: none;
             outline: none;
-            background-color: royalblue;
+            background-color: #3f3f3f;
             padding: 10px;
             border-radius: 10px;
             color: #fff;
             font-size: 16px;
+            transition: background-color 0.3s ease;
             cursor: pointer;
         }
 
         .submit:hover {
-            background-color: rgb(56, 90, 194);
+            background-color: #b7aaaa;
+            color: black;
+
         }
 
         .workouts-list {
             list-style-type: none;
             padding-left: 20px;
-        }
-
-        .delete-form button {
-            background-color: #ff4c4c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .delete-form button:hover {
-            background-color: #ff1c1c;
         }
 
         .workout-item {
@@ -137,8 +126,13 @@
 
         .workout-item input[type="checkbox"] {
             margin-right: 10px;
-            transform: scale(1.3); /* Increase the size of the checkbox */
+            transform: scale(1.3);
+            accent-color: #595454;
+            transition: ease 0.3s;
+
         }
+
+
     </style>
 </head>
 <body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 <head>
     <meta charset="UTF-8">
     <title>Prijava</title>
@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
+            background: url('https://img.freepik.com/premium-photo/gym-background-enough-blank-space-light-white-tone-modern-style-generative-ai_527096-25226.jpg?w=1060') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
@@ -17,6 +18,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: rgba(240, 242, 245, 0.8); /* Adding a semi-transparent background */
         }
 
         .form-container {
@@ -32,7 +34,7 @@
 
         .title {
             font-size: 28px;
-            color: royalblue;
+            color: #5d5b5b;
             font-weight: 600;
             letter-spacing: -1px;
             position: relative;
@@ -49,13 +51,13 @@
             width: 16px;
             border-radius: 50%;
             left: 0px;
-            background-color: royalblue;
+            background-color: #5d5b5b;
         }
 
         .title::before {
             width: 18px;
             height: 18px;
-            background-color: royalblue;
+            background-color: #5d5b5b;
         }
 
         .title::after {
@@ -74,11 +76,11 @@
         }
 
         .signin a {
-            color: royalblue;
+            color: #5d5b5b;
         }
 
         .signin a:hover {
-            text-decoration: underline royalblue;
+            text-decoration: underline black;
         }
 
         .form label {
@@ -116,13 +118,13 @@
         }
 
         .form label .input:valid + span {
-            color: green;
+            color: #000;
         }
 
         .submit {
             border: none;
             outline: none;
-            background-color: royalblue;
+            background-color: #363030;
             padding: 10px;
             border-radius: 10px;
             color: #fff;
@@ -131,7 +133,8 @@
         }
 
         .submit:hover {
-            background-color: rgb(56, 90, 194);
+            background-color: #726c6c;
+            transition: ease-in 0.1s;
         }
 
         @keyframes pulse {
@@ -147,7 +150,7 @@
         }
 
         .error-message, .logout-message {
-            background-color: royalblue;
+            background-color: #726c6c;
             color: #fff;
             padding: 10px;
             border-radius: 15px;

@@ -5,18 +5,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <title>Edit Workout Plan</title>
     <style>
-        body{
+        body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
+            background: url('https://img.freepik.com/premium-photo/gym-background-enough-blank-space-light-white-tone-modern-style-generative-ai_527096-25226.jpg?w=1060') no-repeat center center fixed;
+            background-size: cover;
         }
+
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f2f5;
+            background-color: rgba(240, 242, 245, 0.8); /* Adding a semi-transparent background */
         }
 
         .form-container {
@@ -31,9 +33,8 @@
         }
 
         .title {
-            font-family: 'Roboto', sans-serif;
             font-size: 28px;
-            color: royalblue;
+            color: #5d5b5b;
             font-weight: 600;
             letter-spacing: -1px;
             position: relative;
@@ -41,6 +42,28 @@
             align-items: center;
             padding-left: 30px;
             margin: 0;
+        }
+
+        .title::before, .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: #5d5b5b;
+        }
+
+        .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: #5d5b5b;
+        }
+
+        .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
         }
 
         .form {
@@ -71,12 +94,14 @@
             cursor: text;
             transition: 0.3s ease;
         }
-        .choose{
+
+        .choose {
             color: grey;
             font-size: 0.9em;
             cursor: text;
             transition: 0.3s ease;
         }
+
         .form label .input:placeholder-shown + span {
             top: 15px;
             font-size: 0.9em;
@@ -95,7 +120,7 @@
         .submit {
             border: none;
             outline: none;
-            background-color: royalblue;
+            background-color: #363030;
             padding: 10px;
             border-radius: 10px;
             color: #fff;
@@ -104,7 +129,7 @@
         }
 
         .submit:hover {
-            background-color: rgb(56, 90, 194);
+            background-color: #726c6c;
         }
 
         .workouts-list {
@@ -125,7 +150,22 @@
 
         .workout-item input[type="checkbox"] {
             margin-right: 10px;
-            transform: scale(1.3); /* Increase the size of the checkbox */
+            transform: scale(1.3);
+            accent-color: #595454;
+            transition: ease 0.3s;
+
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+
+            to {
+                transform: scale(1.8);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -153,4 +193,3 @@
 </div>
 </body>
 </html>
-```
